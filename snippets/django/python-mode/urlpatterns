@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: urlpatterns
+# key: urlpatterns
+# binding: direct-keybinding
+# --
+urlpatterns = [
+    url(r'^${1:todo}/$', include('${2:app}.urls')),
+]
+$0

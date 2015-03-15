@@ -1,0 +1,8 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: now
+# key: now
+# binding: direct-keybinding
+# --
+import datetime
+now = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+$0

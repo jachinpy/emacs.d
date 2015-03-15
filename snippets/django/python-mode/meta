@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: meta
+# key: meta
+# binding: direct-keybinding
+# --
+    class Meta:
+        model = ${1: NAME}
+        fields = ['${2: NAME}', ]
+$0

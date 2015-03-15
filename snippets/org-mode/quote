@@ -1,0 +1,6 @@
+#name : quote
+#contributor : Jonathan Arkell <jonnay@jonnay.net>
+# --
+#+BEGIN_QUOTE
+$0
+#+END_QUOTE

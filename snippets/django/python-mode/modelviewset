@@ -1,0 +1,10 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: modelviewset
+# key: modelviewset
+# binding: direct-keybinding
+# --
+class ${1:}ViewSet(viewsets.ModelViewSet):
+    queryset = ${2:}.objects.all()
+    serializer_class = ${3:}Serializer
+
+    $0

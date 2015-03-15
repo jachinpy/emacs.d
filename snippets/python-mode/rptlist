@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: rptlist
+# key: rptlist
+# --
+t = SqlTable("""
+	
+	""")
+$0
+
+rpt.add_item(t)

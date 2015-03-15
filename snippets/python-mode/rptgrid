@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: rptgrid
+# key: rptgrid
+# --
+${1:g} = Grid()
+$1.set_col_widths(0, 0, 0)
+$0
+rpt.add_item(g)

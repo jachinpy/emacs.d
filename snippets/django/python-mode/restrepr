@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: restrepr
+# key: restrepr
+# binding: direct-keybinding
+# --
+    def to_representation(self, obj):
+        ret = super(${1:}, self).to_representation(obj)
+        return ${2:}
+    $0
