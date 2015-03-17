@@ -20,6 +20,11 @@
                                '("~/.emacs.d/snippets/django")
                                '("~/.emacs.d/yasnippet-snippets")))
 
+;;; evil-mode for vim
+(evil-mode 1)
+(setq evil-default-state 'emacs)
+(define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state)
+
 ;;; start file as root.
 (defun edit-current-file-as-root ()
   "Edit the file that is associated with the current buffer as root"
