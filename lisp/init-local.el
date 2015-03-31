@@ -45,6 +45,8 @@
 (global-auto-revert-mode 1)
 
 ;;; Fill-Column-Indicator, fix bug.
+;; fci-rule-color can use in dark color.
+;; "lightgreen", "green", "darkblue" ,"light green" and so on.
 (make-variable-buffer-local 'line-move-visual)
 (defadvice previous-line (around avoid-jumpy-fci activate)
   (if (and (symbol-value 'fci-mode) (> (count-lines 1 (point)) 0))
@@ -56,6 +58,8 @@
 
 (define-globalized-minor-mode my-global-fci-mode fci-mode turn-on-fci-mode)
 (my-global-fci-mode 1)
+(setq-default fill-column 80)
+(setq fci-rule-color "light green")
 
 ;;; delete white space
 (defun my-delete-leading-whitespace (start end)
