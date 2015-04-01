@@ -113,7 +113,7 @@ If FILE already exists, signal an error."
            (dired-add-file new)
            (dired-move-to-filename))))))
 
-;;; helm
+;;; helm and projectil
 (add-to-list 'load-path "~/.emacs.d/elpa/helm-20150331.1105")
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -123,5 +123,12 @@ If FILE already exists, signal an error."
       helm-recentf-fuzzy-match    t)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+(helm-projectile-on)
+
+;;; First scratch message.
+(setq-default initial-scratch-message
+              (concat ";; Welcome hacking " (or user-login-name "") " ♥ gogogo!\n\n"))
 
 (provide 'init-local)
