@@ -113,4 +113,15 @@ If FILE already exists, signal an error."
            (dired-add-file new)
            (dired-move-to-filename))))))
 
+;;; helm
+(add-to-list 'load-path "~/.emacs.d/elpa/helm-20150331.1105")
+(require 'helm-config)
+(global-set-key (kbd "M-x") 'helm-M-x)
+(global-set-key (kbd "M-y") 'helm-show-kill-ring)
+(global-set-key (kbd "C-x b") 'helm-mini)
+(setq helm-buffers-fuzzy-matching t
+      helm-recentf-fuzzy-match    t)
+(global-set-key (kbd "C-x C-f") 'helm-find-files)
+
+
 (provide 'init-local)
