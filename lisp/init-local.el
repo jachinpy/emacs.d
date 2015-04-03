@@ -13,6 +13,9 @@
 (setq display-time-day-and-date t)
 (setq display-time-interval 10)
 
+;;; hightlight line.
+(global-hl-line-mode 1)
+
 ;;; yasnippet, M-x yas-reload-all if you've started YASnippet already.
 (yas-global-mode 1)
 ;;; keeping YASnippet defaults try out ~/Downloads/interesting-snippets
@@ -122,10 +125,13 @@ If FILE already exists, signal an error."
 (setq helm-buffers-fuzzy-matching t
       helm-recentf-fuzzy-match    t)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
+(global-set-key (kbd "C-c h o") 'helm-occur)
 
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
+;;; helm-descbinds
+(helm-descbinds-mode 1)
 
 ;;; First scratch message.
 (setq-default initial-scratch-message
