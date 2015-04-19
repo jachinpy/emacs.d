@@ -133,6 +133,24 @@ If FILE already exists, signal an error."
 ;;; helm-descbinds
 (helm-descbinds-mode 1)
 
+;;; ropemacs
+;;(setenv "PYMACS_PYTHON" "python2.7")
+(eval-after-load 'python
+  '(progn
+     (autoload 'pymacs-apply "pymacs")
+     (autoload 'pymacs-call "pymacs")
+     (autoload 'pymacs-eval "pymacs" nil t)
+     (autoload 'pymacs-exec "pymacs" nil t)
+     (autoload 'pymacs-load "pymacs" nil t)
+     (message "loading ropemacs")
+     (pymacs-load "ropemacs" "rope-")
+     (setq ropemacs-enable-autoimport t)))
+
+(ac-ropemacs-initialize)
+(add-hook 'python-mode-hook
+    (lambda ()
+         (add-to-list 'ac-sources 'ac-source-ropemacs)))
+
 ;;; First scratch message.
 (setq-default initial-scratch-message
               (concat ";; Welcome hacking " (or user-login-name "") " ♥ gogogo!\n\n"))
