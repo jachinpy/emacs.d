@@ -134,7 +134,21 @@ If FILE already exists, signal an error."
 (helm-descbinds-mode 1)
 
 ;;; ropemacs
-;;(setenv "PYMACS_PYTHON" "python2.7")
+(add-to-list 'load-path "~/.emacs.d/vendor/pinard-Pymacs-e3f67f9")
+(require 'pymacs)
+;; (let ((process
+;;         (apply 'start-process "pymacs" buffer
+;;                (let ((python (getenv "PYMACS_PYTHON")))
+;;                  (if (or (null python) (equal python ""))
+;;                      pymacs-python-command
+;;                    python))
+;;                "-c" (concat "import sys;"
+;;                             " from Pymacs import main;"
+;;                             " main(*sys.argv[1:])")
+;;                (append
+;;                 (and (>= emacs-major-version 24) '("-f"))
+;;                 (mapcar 'expand-file-name pymacs-load-path)))))
+
 (eval-after-load 'python
   '(progn
      (autoload 'pymacs-apply "pymacs")
@@ -148,8 +162,8 @@ If FILE already exists, signal an error."
 
 (ac-ropemacs-initialize)
 (add-hook 'python-mode-hook
-    (lambda ()
-         (add-to-list 'ac-sources 'ac-source-ropemacs)))
+          (lambda ()
+            (add-to-list 'ac-sources 'ac-source-ropemacs)))
 
 ;;; First scratch message.
 (setq-default initial-scratch-message
