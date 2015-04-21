@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: pexport
+# key: pexport
+# binding: direct-keybinding
+# --
+| export | string | N | 1 或 true， 导出表格 |

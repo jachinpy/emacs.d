@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: pkk
+# key: pkk
+# binding: direct-keybinding
+# --
+| pk | int | Y | id |

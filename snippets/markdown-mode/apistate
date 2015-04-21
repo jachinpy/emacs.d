@@ -1,0 +1,9 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: apistate
+# key: apistate
+# binding: direct-keybinding
+# --
+| 名称  | 类型 |说明 |
+| ------------- | ------------- | ------------- | ------------- |
+| state | bool | True or False |
+| error | bool | 如果 state 返回 False， 将得到 error。|
