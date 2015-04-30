@@ -47,8 +47,7 @@
 (autoload 'global-auto-revert-mode "autorevert" 0 t)
 (global-auto-revert-mode 1)
 
-;;; Fill-Column-Indicator, fix bug.
-;; fci-rule-color can use in dark color.
+;;; Fill-Column-Indicator, fix bug. fci-rule-color can use in dark color.
 ;; "lightgreen", "green", "darkblue" ,"light green" and so on.
 (make-variable-buffer-local 'line-move-visual)
 (defadvice previous-line (around avoid-jumpy-fci activate)
@@ -64,7 +63,7 @@
 (setq-default fill-column 80)
 (setq fci-rule-color "light green")
 
-;;; delete white space
+;;; Delete white space
 (defun my-delete-leading-whitespace (start end)
   "Delete whitespace at the beginning of each line in region."
   (interactive "*r")
@@ -72,15 +71,14 @@
     (if (not (bolp)) (forward-line 1))
     (delete-whitespace-rectangle (point) end 0)))
 
-;;; w3m
-;;; ubuntu, sudo apt-get install w3m
+;;; W3m, ubuntu, sudo apt-get install or upgrade w3m.
+(add-to-list 'load-path "~/.emacs.d/elpa/w3m-20150426.1916")
 (setq browse-url-browser-function 'w3m-browse-url)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 ;; optional keyboard short-cut
 (global-set-key "\C-xm" 'browse-url-at-point)
 
-;;; fullscreen
-;;; reference: http://www.emacswiki.org/cgi-bin/wiki/FullScreen
+;;; Fullscreen, reference: http://www.emacswiki.org/cgi-bin/wiki/FullScreen
 (defun fullscreen ()
   (interactive)
   (set-frame-parameter nil 'fullscreen
@@ -116,8 +114,8 @@ If FILE already exists, signal an error."
            (dired-add-file new)
            (dired-move-to-filename))))))
 
-;;; helm and projectil
-(add-to-list 'load-path "~/.emacs.d/elpa/helm-20150331.1105")
+;;; helm and projectile, list should be attention upgrade.
+(add-to-list 'load-path "~/.emacs.d/elpa/helm-20150428.2253")
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
@@ -167,7 +165,7 @@ If FILE already exists, signal an error."
 
 ;;; First scratch message.
 (setq-default initial-scratch-message
-              (concat ";; Welcome hacking " (or user-login-name "") " ♥ gogogo!\n\n"))
+              (concat ";; Welcome Snipper" (or user-login-name "") "OK, LET'S GO !\n\n"))
 
 ;; mew
 (autoload 'mew "mew" nil t)
@@ -189,4 +187,9 @@ If FILE already exists, signal an error."
       'mew-send-hook))
 
 (setq mew-use-cached-passwd t)
+
+;;; Read code.
+(require 'ensime)
+(add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
 (provide 'init-local)
