@@ -130,38 +130,6 @@ If FILE already exists, signal an error."
 ;;; helm-descbinds
 (helm-descbinds-mode 1)
 
-;;; ropemacs
-(add-to-list 'load-path "~/.emacs.d/vendor/pinard-Pymacs-e3f67f9")
-(require 'pymacs)
-;; (let ((process
-;;         (apply 'start-process "pymacs" buffer
-;;                (let ((python (getenv "PYMACS_PYTHON")))
-;;                  (if (or (null python) (equal python ""))
-;;                      pymacs-python-command
-;;                    python))
-;;                "-c" (concat "import sys;"
-;;                             " from Pymacs import main;"
-;;                             " main(*sys.argv[1:])")
-;;                (append
-;;                 (and (>= emacs-major-version 24) '("-f"))
-;;                 (mapcar 'expand-file-name pymacs-load-path)))))
-
-(eval-after-load 'python
-  '(progn
-     (autoload 'pymacs-apply "pymacs")
-     (autoload 'pymacs-call "pymacs")
-     (autoload 'pymacs-eval "pymacs" nil t)
-     (autoload 'pymacs-exec "pymacs" nil t)
-     (autoload 'pymacs-load "pymacs" nil t)
-     (message "loading ropemacs")
-     (pymacs-load "ropemacs" "rope-")
-     (setq ropemacs-enable-autoimport t)))
-
-(ac-ropemacs-initialize)
-(add-hook 'python-mode-hook
-          (lambda ()
-            (add-to-list 'ac-sources 'ac-source-ropemacs)))
-
 ;;; Scratch message.
 (setq-default initial-scratch-message
               (concat ";; " (or user-login-name "") " returned to here.!\n\n"))
