@@ -1,34 +1,35 @@
-;;; code
-;; packages:
-;; (neotree, Fill-Column-Indicator, yasnippet, multiple-cursors
-;; ido, term, jedi, w3m, virtualenv, slime, multiterm, solarized-theme,
-;; )
+;;; Manual install packages:
+;;; (yasnippet, pymacs, jedi, w3m, virtualenv, slime, solarized-theme,
+;;; evil, helm, helm-projectile, projectile, helm-descbinds)
 
-;;; disable menu
+;;; Other
+;;; sudo apt-get install w3m
+
+;;; Disable menu
 (menu-bar-mode -1)
 
-;;; time
+;;; Set status <time>
 (display-time-mode 1)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
 (setq display-time-interval 10)
 
-;;; hightlight line.
+;;; Hightlight point line.
 (global-hl-line-mode 1)
 
-;;; yasnippet, M-x yas-reload-all if you've started YASnippet already.
+;;; Yasnippet, M-x yas-reload-all if you've started YASnippet already.
 (yas-global-mode 1)
 ;;; keeping YASnippet defaults try out ~/Downloads/interesting-snippets
 (setq yas-snippet-dirs (append yas-snippet-dirs
                                '("~/.emacs.d/snippets/django")
                                '("~/.emacs.d/yasnippet-snippets")))
 
-;;; evil-mode for vim
+;;; Evil-mode for vim
 (evil-mode 1)
 (setq evil-default-state 'emacs)
 (define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state)
 
-;;; start file as root.
+;;; Start file use root.
 (defun edit-current-file-as-root ()
   "Edit the file that is associated with the current buffer as root"
   (interactive)
@@ -38,10 +39,7 @@
         (find-file file))
     (message "Current buffer does not have an associated file.")))
 
-;;; neotree
-(global-set-key [f8] 'neotree-toggle)
-
-;;; autorevert stuff
+;;; Autorevert stuff
 (autoload 'auto-revert-mode "autorevert" 0 t)
 (autoload 'turn-on-auto-revert-mode "autorevert" 0 0)
 (autoload 'global-auto-revert-mode "autorevert" 0 t)
@@ -71,7 +69,7 @@
     (if (not (bolp)) (forward-line 1))
     (delete-whitespace-rectangle (point) end 0)))
 
-;;; W3m, ubuntu, sudo apt-get install or upgrade w3m.
+;;; W3m, list need update.
 (add-to-list 'load-path "~/.emacs.d/elpa/w3m-20150426.1916")
 (setq browse-url-browser-function 'w3m-browse-url)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
@@ -114,7 +112,8 @@ If FILE already exists, signal an error."
            (dired-add-file new)
            (dired-move-to-filename))))))
 
-;;; helm and projectile, list should be attention upgrade.
+;;; helm/projectile
+;;; if occur error. load-path should be update.
 (add-to-list 'load-path "~/.emacs.d/elpa/helm-20150428.2253")
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -163,9 +162,9 @@ If FILE already exists, signal an error."
           (lambda ()
             (add-to-list 'ac-sources 'ac-source-ropemacs)))
 
-;;; First scratch message.
+;;; Scratch message.
 (setq-default initial-scratch-message
-              (concat ";; Welcome Snipper" (or user-login-name "") "OK, LET'S GO !\n\n"))
+              (concat ";; " (or user-login-name "") " returned to here.!\n\n"))
 
 ;; mew
 (autoload 'mew "mew" nil t)
