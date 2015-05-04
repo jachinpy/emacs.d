@@ -1,9 +1,11 @@
 ;;; Manual install packages:
 ;;; (yasnippet, pymacs, jedi, w3m, virtualenv, slime, solarized-theme,
-;;; evil, helm, helm-projectile, projectile, helm-descbinds)
+;;; evil, helm, helm-projectile, projectile, helm-descbinds, elpy, ensime)
 
-;;; Other
+;;; M-x packages w3m
 ;;; sudo apt-get install w3m
+;;; M-x packages elpy RET
+;;; sudo pip install rope flake8 pep8 jedi importmagic
 
 ;;; Disable menu
 (menu-bar-mode -1)
@@ -132,7 +134,8 @@ If FILE already exists, signal an error."
 
 ;;; Scratch message.
 (setq-default initial-scratch-message
-              (concat ";; " (or user-login-name "") " returned to here.!\n\n"))
+              (concat ";; Welcome " (or user-login-name "")
+                      "!\n;; Experience must be bought.\n\n"))
 
 ;; mew
 (autoload 'mew "mew" nil t)
@@ -158,5 +161,9 @@ If FILE already exists, signal an error."
 ;;; Read code.
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
+
+;;; elpy
+(package-initialize)
+(elpy-enable)
 
 (provide 'init-local)
