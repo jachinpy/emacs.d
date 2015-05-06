@@ -7,10 +7,9 @@
 ;;; M-x packages elpy RET
 ;;; sudo pip install rope flake8 pep8 jedi importmagic
 
-;;; Disable menu
+;;; Code:
 (menu-bar-mode -1)
 
-;;; Set status <time>
 (display-time-mode 1)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
@@ -26,12 +25,10 @@
                                '("~/.emacs.d/snippets/django")
                                '("~/.emacs.d/yasnippet-snippets")))
 
-;;; Evil-mode for vim
 (evil-mode 1)
 (setq evil-default-state 'emacs)
 (define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state)
 
-;;; Start file use root.
 (defun edit-current-file-as-root ()
   "Edit the file that is associated with the current buffer as root"
   (interactive)
@@ -41,7 +38,6 @@
         (find-file file))
     (message "Current buffer does not have an associated file.")))
 
-;;; Autorevert stuff
 (autoload 'auto-revert-mode "autorevert" 0 t)
 (autoload 'turn-on-auto-revert-mode "autorevert" 0 0)
 (autoload 'global-auto-revert-mode "autorevert" 0 t)
@@ -63,7 +59,6 @@
 (setq-default fill-column 80)
 (setq fci-rule-color "light green")
 
-;;; Delete white space
 (defun my-delete-leading-whitespace (start end)
   "Delete whitespace at the beginning of each line in region."
   (interactive "*r")
@@ -78,7 +73,6 @@
 ;; optional keyboard short-cut
 (global-set-key "\C-xm" 'browse-url-at-point)
 
-;;; Fullscreen, reference: http://www.emacswiki.org/cgi-bin/wiki/FullScreen
 (defun fullscreen ()
   (interactive)
   (set-frame-parameter nil 'fullscreen
@@ -114,8 +108,6 @@ If FILE already exists, signal an error."
            (dired-add-file new)
            (dired-move-to-filename))))))
 
-;;; helm/projectile
-;;; if occur error. load-path should be update.
 (add-to-list 'load-path "~/.emacs.d/elpa/helm-20150428.2253")
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
@@ -129,15 +121,13 @@ If FILE already exists, signal an error."
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
-;;; helm-descbinds
+
 (helm-descbinds-mode 1)
 
-;;; Scratch message.
 (setq-default initial-scratch-message
               (concat ";; Welcome " (or user-login-name "")
                       "!\n;; Experience must be bought.\n\n"))
 
-;; mew
 (autoload 'mew "mew" nil t)
 (autoload 'mew-send "mew" nil t)
 
@@ -162,7 +152,6 @@ If FILE already exists, signal an error."
 (require 'ensime)
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-;;; elpy
 (package-initialize)
 (elpy-enable)
 
