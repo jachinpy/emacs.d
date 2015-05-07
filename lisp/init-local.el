@@ -1,11 +1,20 @@
+;;; Start Here.
 ;;; Manual install packages:
 ;;; (yasnippet, pymacs, jedi, w3m, virtualenv, slime, solarized-theme,
 ;;; evil, helm, helm-projectile, projectile, helm-descbinds, elpy, ensime)
 
 ;;; M-x packages w3m
 ;;; sudo apt-get install w3m
+
 ;;; M-x packages elpy RET
 ;;; sudo pip install rope flake8 pep8 jedi importmagic
+
+;;; Install pymacs
+;;; git clone http://github.com/pinard/pymacs
+;;; cd pymacs
+;;; make check
+;;; sudo make install
+;;; sudo  pip install rope ropemacs
 
 ;;; Code:
 (menu-bar-mode -1)
@@ -166,5 +175,17 @@ If FILE already exists, signal an error."
       (concat user-temporary-file-directory ".auto-saves-"))
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
+
+(add-to-list 'load-path "~/.emacs.d/pymacs")
+(defun load-ropemacs ()
+  "Load pymacs and ropemacs"
+  (interactive)
+  (require 'pymacs)
+  (pymacs-load "ropemacs" "rope-")
+  ;; Automatically save project python buffers before refactorings
+  (setq ropemacs-confirm-saving 'nil)
+  )
+(global-set-key "\C-xpl" 'load-ropemacs)
+
 
 (provide 'init-local)
