@@ -15,10 +15,9 @@
 (setq display-time-day-and-date t)
 (setq display-time-interval 10)
 
-;;; Hightlight point line.
 (global-hl-line-mode 1)
 
-;;; Yasnippet, M-x yas-reload-all if you've started YASnippet already.
+;;; M-x yas-reload-all if you've started YASnippet already.
 (yas-global-mode 1)
 ;;; keeping YASnippet defaults try out ~/Downloads/interesting-snippets
 (setq yas-snippet-dirs (append yas-snippet-dirs
@@ -43,7 +42,7 @@
 (autoload 'global-auto-revert-mode "autorevert" 0 t)
 (global-auto-revert-mode 1)
 
-;;; Fill-Column-Indicator, fix bug. fci-rule-color can use in dark color.
+;;; Fix bug. fci-rule-color can use in dark color.
 ;; "lightgreen", "green", "darkblue" ,"light green" and so on.
 (make-variable-buffer-local 'line-move-visual)
 (defadvice previous-line (around avoid-jumpy-fci activate)
@@ -66,11 +65,9 @@
     (if (not (bolp)) (forward-line 1))
     (delete-whitespace-rectangle (point) end 0)))
 
-;;; W3m, list need update.
 (add-to-list 'load-path "~/.emacs.d/elpa/w3m-20150426.1916")
 (setq browse-url-browser-function 'w3m-browse-url)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-;; optional keyboard short-cut
 (global-set-key "\C-xm" 'browse-url-at-point)
 
 (defun fullscreen ()
@@ -154,5 +151,20 @@ If FILE already exists, signal an error."
 
 (package-initialize)
 (elpy-enable)
+
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'eldoc-mode)
+
+(defvar user-temporary-file-directory
+  (concat temporary-file-directory user-login-name "/"))
+(make-directory user-temporary-file-directory t)
+(setq backup-by-copying t)
+(setq backup-directory-alist
+      `(("." . ,user-temporary-file-directory)
+        (, tramp-file-name-regexp nil)))
+(setq auto-save-list-file-prefix
+      (concat user-temporary-file-directory ".auto-saves-"))
+(setq auto-save-file-name-transforms
+      `((".*" ,user-temporary-file-directory t)))
 
 (provide 'init-local)
