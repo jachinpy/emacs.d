@@ -17,6 +17,8 @@
 ;;; sudo  pip install rope ropemacs
 
 ;;; Code:
+;; (setq debug-on-error t)
+
 (menu-bar-mode -1)
 
 (display-time-mode 1)
@@ -74,7 +76,7 @@
     (if (not (bolp)) (forward-line 1))
     (delete-whitespace-rectangle (point) end 0)))
 
-(add-to-list 'load-path "~/.emacs.d/elpa/w3m-20150426.1916")
+(require 'w3m)
 (setq browse-url-browser-function 'w3m-browse-url)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 (global-set-key "\C-xm" 'browse-url-at-point)
@@ -114,7 +116,7 @@ If FILE already exists, signal an error."
            (dired-add-file new)
            (dired-move-to-filename))))))
 
-(add-to-list 'load-path "~/.emacs.d/elpa/helm-20150428.2253")
+(require 'helm)
 (require 'helm-config)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
@@ -127,8 +129,8 @@ If FILE already exists, signal an error."
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 (helm-projectile-on)
-
 (helm-descbinds-mode 1)
+(helm-mode 1)
 
 (setq-default initial-scratch-message
               (concat ";; Welcome " (or user-login-name "")
@@ -195,6 +197,5 @@ If FILE already exists, signal an error."
         '("argparse" "bisect" "calendar" "collections" "ConfigParser" "datetime" "distutils" "errno" "exceptions" "fileinput" "fnmatch" "formatter" "fractions" "functools" "getopt" "glob" "hashlib" "heapq" "io" "itertools" "json" "logging" "math" "mimetypes" "os" "os.path" "pickle" "pickletools" "pipes" "platform" "pprint" "pydoc" "pyqcy" "random" "re" "repr" "setuptools" "shutil" "string" "sys" "tempfile" "time" "timeit" "urllib" "urllib2" "urlparse" "uuid" "weakref"))
   )
 (global-set-key "\C-xpl" 'load-ropemacs)
-
 
 (provide 'init-local)
