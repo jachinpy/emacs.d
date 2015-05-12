@@ -1,12 +1,5 @@
-[![Build Status](https://travis-ci.org/purcell/emacs.d.png?branch=master)](https://travis-ci.org/purcell/emacs.d)
-
+[![Build Status](https://travis-ci.org/jachinpy/emacs.d.png?branch=develop)](https://travis-ci.org/jachinpy/emacs.d)
 # A reasonable Emacs config
-
-This is my emacs configuration tree, continually used and tweaked
-since 2000, and it may be a good starting point for other Emacs
-users, especially those who are web developers. These days it's
-somewhat geared towards OS X, but it is known to also work on Linux
-and Windows.
 
 Emacs itself comes with support for many programming languages. This
 config adds improved defaults and extended support for the following:
@@ -42,7 +35,7 @@ To install, clone this repo to `~/.emacs.d`, i.e. ensure that the
 `init.el` contained in this repo ends up at `~/.emacs.d/init.el`:
 
 ```
-git clone https://github.com/purcell/emacs.d.git ~/.emacs.d
+git clone https://github.com/jachinpy/emacs.d.git ~/.emacs.d
 ```
 
 Upon starting up Emacs for the first time, further third-party
@@ -85,25 +78,23 @@ you can also create an `~/.emacs.d/lisp/init-preload-local.el` file.
 If you plan to customize things more extensively, you should probably
 just fork the repo and hack away at the config to make it your own!
 
-## Similar configs
 
-You might also want to check out `emacs-starter-kit` and `prelude`.
+## feature
 
-## Support / issues
-
-If you hit any problems, please first ensure that you are using the latest version
-of this code, and that you have updated your packages to the most recent available
-versions (see "Updates" above). If you still experience problems, go ahead and
-[file an issue on the github project](https://github.com/purcell/emacs.d).
-
--Steve Purcell
-
-<hr>
-
-[![](http://api.coderwall.com/purcell/endorsecount.png)](http://coderwall.com/purcell)
-
-[![](http://www.linkedin.com/img/webpromo/btn_liprofile_blue_80x15.png)](http://uk.linkedin.com/in/stevepurcell)
-
-[sanityinc.com](http://www.sanityinc.com/)
-
-[@sanityinc](https://twitter.com/)
+ + add vim style key "%" replace C-M-n or C-M-p
+ + add evil-mode, yas-global-mode
+ + remove menu.
+ + add root edit current file.
+ + fix fill colum bug.
+ + add w3m
+ + add dired mode create file.
+ + add helm, helm-projectile, helm-descbinds-mode
+ + add mew
+ + add ensime
+ + change backup dir in /tmp/{hostname}/
+ + add python IDE,pymacs, ropemacs, rope
+ + add web-mode config.
+ + add projectile.
+ + add fullscreen and key.
+ + add function my-delete-leading-whitespace.
+ + add more packages, eg: elpy, pymacs, and so on.
