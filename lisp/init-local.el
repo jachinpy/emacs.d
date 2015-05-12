@@ -228,4 +228,9 @@ If FILE already exists, signal an error."
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
 
+(defun insert-datetime ()
+  "Insert now datetime at point."
+  (interactive)
+  (insert (format-time-string "%Y-%m-%s %H:%M:%S")))
+
 (provide 'init-local)
