@@ -233,4 +233,6 @@ If FILE already exists, signal an error."
   (interactive)
   (insert (format-time-string "%Y-%m-%s %H:%M:%S")))
 
+(setq org-agenda-files (list "~/project/carry/strategy.org"
+                             "~/project/carry/plan.org"))
 (provide 'init-local)
