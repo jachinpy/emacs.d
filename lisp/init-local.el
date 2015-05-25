@@ -18,6 +18,7 @@
 
 ;;; Code:
 ;; (setq debug-on-error t)
+;; M-x toggle-debug-on-error
 (require-package 'yasnippet)
 ;;; M-x yas-reload-all if you've started YASnippet already.
 (yas-global-mode 1)
@@ -56,6 +57,7 @@
 (require-package 'helm)
 (require 'helm)
 (require 'helm-config)
+(require 'helm-misc)
 (global-set-key (kbd "M-x") 'helm-M-x)
 (global-set-key (kbd "M-y") 'helm-show-kill-ring)
 (global-set-key (kbd "C-x b") 'helm-mini)
@@ -63,6 +65,10 @@
       helm-recentf-fuzzy-match    t)
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-c h o") 'helm-occur)
+
+(after 'projectile
+       (require-package 'helm-projectile)
+       (require 'helm-projectile))
 
 (require-package 'projectile)
 (projectile-global-mode)
