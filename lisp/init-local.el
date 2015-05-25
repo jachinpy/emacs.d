@@ -49,14 +49,15 @@
 (setq fci-rule-color "light green")
 
 (require-package 'w3m)
-(add-to-list 'load-path "/home/jachin/.emacs.d/elpa/w3m-20150522.357a")
+(add-to-list 'load-path "~/.emacs.d/elpa/w3m")
 (require 'w3m)
+(setq w3m-use-cookies t)
 (setq browse-url-browser-function 'w3m-browse-url)
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 (global-set-key "\C-xm" 'browse-url-at-point)
 
 (require-package 'helm)
-;; (add-to-list 'load-path "~/.emacs.d/elpa/helm-20150523.1207")
+(add-to-list 'load-path "~/.emacs.d/elpa/helm")
 (require 'helm)
 (require 'helm-config)
 (require 'helm-misc)
