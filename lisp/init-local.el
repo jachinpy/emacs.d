@@ -1,12 +1,13 @@
-;;; Start Here.
+;;; Code:
 ;;; Manual install packages:
 ;;; (yasnippet, pymacs, jedi, w3m, virtualenv, slime, solarized-theme,
-;;; evil, helm, helm-projectile, projectile, helm-descbinds, elpy, ensime)
+;;; evil, helm, helm-projectile, projectile, helm-descbinds, elpy, ensime,
+;;; nyan-mode,...)
 
-;;; M-x packages w3m
+;;; Install w3m
 ;;; sudo apt-get install w3m
 
-;;; M-x packages elpy RET
+;;; Install elpy
 ;;; sudo pip install rope flake8 pep8 jedi importmagic
 
 ;;; Install pymacs
@@ -16,10 +17,8 @@
 ;;; sudo make install
 ;;; sudo  pip install rope ropemacs
 
-;;; Code:
 ;; (setq debug-on-error t)
 ;; M-x toggle-debug-on-error
-(require-package 'yasnippet)
 ;;; M-x yas-reload-all if you've started YASnippet already.
 (yas-global-mode 1)
 ;;; keeping YASnippet defaults try out ~/Downloads/interesting-snippets
@@ -27,7 +26,6 @@
                                '("~/.emacs.d/snippets/django")
                                '("~/.emacs.d/yasnippet-snippets")))
 
-(require-package 'evil)
 (evil-mode 1)
 (setq evil-default-state 'emacs)
 (define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state)
@@ -48,7 +46,6 @@
 (setq-default fill-column 80)
 (setq fci-rule-color "light green")
 
-(require-package 'w3m)
 (add-to-list 'load-path "~/.emacs.d/elpa/w3m")
 (require 'w3m)
 (setq w3m-use-cookies t)
@@ -56,7 +53,6 @@
 (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 (global-set-key "\C-xm" 'browse-url-at-point)
 
-(require-package 'helm)
 (add-to-list 'load-path "~/.emacs.d/elpa/helm")
 (require 'helm)
 (require 'helm-config)
@@ -69,20 +65,10 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-c h o") 'helm-occur)
 
-(eval-after-load 'projectile
-  '(progn
-     (require-package 'helm-projectile)
-     (require 'helm-projectile))
-  )
-
-(require-package 'projectile)
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 
-(require-package 'helm-projectile)
 (helm-projectile-on)
-
-(require-package 'helm-descbinds)
 (helm-descbinds-mode 1)
 (helm-mode 1)
 
@@ -110,17 +96,12 @@
 
 (setq mew-use-cached-passwd t)
 
-(require-package 'ensime)
-;;; Read code.
-(require 'ensime)
+(require 'ensime) ;;; Read code.
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-(require-package 'jedi)
-(require-package 'elpy)
 (package-initialize)
 (elpy-enable)
 
-(require-package 'anaconda-mode)
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'eldoc-mode)
 
@@ -144,7 +125,6 @@
   )
 (global-set-key "\C-xpl" 'load-ropemacs)
 
-(require-package 'web-mode)
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -155,9 +135,8 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-(require-package 'nyan-mode)
-(nyan-mode 1)
 
+(nyan-mode 1)
 (menu-bar-mode 0)
 
 (display-time-mode 1)

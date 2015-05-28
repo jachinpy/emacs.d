@@ -14,4 +14,24 @@
 (when (not package-archive-contents)
   (package-refresh-contents))
 
+(require-package 'yasnippet)
+(require-package 'evil)
+(require-package 'w3m)
+(require-package 'helm)
+(require-package 'projectile)
+
+(eval-after-load 'projectile
+  '(progn
+     (require-package 'helm-projectile)
+     (require 'helm-projectile)
+     (require-package 'helm-descbinds))
+  )
+
+(require-package 'ensime)
+(require-package 'jedi)
+(require-package 'elpy)
+(require-package 'anaconda-mode)
+(require-package 'web-mode)
+(require-package 'nyan-mode)
+
 (provide 'init-preload-local)
