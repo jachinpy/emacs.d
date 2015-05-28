@@ -69,9 +69,11 @@
 (global-set-key (kbd "C-x C-f") 'helm-find-files)
 (global-set-key (kbd "C-c h o") 'helm-occur)
 
-(after 'projectile
-       (require-package 'helm-projectile)
-       (require 'helm-projectile))
+(eval-after-load 'projectile
+  '(progn
+     (require-package 'helm-projectile)
+     (require 'helm-projectile))
+  )
 
 (require-package 'projectile)
 (projectile-global-mode)
@@ -142,6 +144,7 @@
   )
 (global-set-key "\C-xpl" 'load-ropemacs)
 
+(require-package 'web-mode)
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -152,7 +155,7 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
-(menu-bar-mode -1)
+(menu-bar-mode 0)
 
 (display-time-mode 1)
 (setq display-time-24hr-format t)
