@@ -155,6 +155,9 @@
 (add-to-list 'auto-mode-alist '("\\.djhtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.html?\\'" . web-mode))
 
+(require-package 'nyan-mode)
+(nyan-mode 1)
+
 (menu-bar-mode 0)
 
 (display-time-mode 1)
