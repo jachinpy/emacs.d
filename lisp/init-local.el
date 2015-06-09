@@ -46,7 +46,8 @@
 (setq-default fill-column 80)
 (setq fci-rule-color "light green")
 
-(add-to-list 'load-path "~/.emacs.d/elpa/w3m")
+(setq get-w3m-path (file-expand-wildcards "~/.emacs.d/elpa/w3m*"))
+(add-to-list 'load-path (car get-w3m-path))
 (require 'w3m)
 (setq w3m-use-cookies t)
 (setq browse-url-browser-function 'w3m-browse-url)
@@ -137,8 +138,6 @@
 
 
 (nyan-mode 1)
-(menu-bar-mode 0)
-
 (display-time-mode 1)
 (setq display-time-24hr-format t)
 (setq display-time-day-and-date t)
