@@ -103,6 +103,8 @@
 (package-initialize)
 (elpy-enable)
 
+(add-hook 'python-mode-hook '(lambda () (linum-on)))
+
 (add-hook 'python-mode-hook 'anaconda-mode)
 (add-hook 'python-mode-hook 'eldoc-mode)
 
@@ -153,7 +155,7 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (self-insert-command (or arg 1)))))
 
-(defun edit-current-file-as-root ()
+(defun edit-file-as-root ()
   "Edit the file that is associated with the current buffer as root"
   (interactive)
   (if (buffer-file-name)
