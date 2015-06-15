@@ -34,4 +34,12 @@
 (require-package 'web-mode)
 (require-package 'nyan-mode)
 
+(defun get-snippet ()
+  (shell-command
+   "git clone https://github.com/AndreaCrotti/yasnippet-snippets.git ~/.emacs.d/yasnippet-snippets"))
+
+(if (file-exists-p "~/.emacs.d/yasnippet-snippets")
+    (message "load yasnppet-snippets")
+  (get-snippet))
+
 (provide 'init-preload-local)
