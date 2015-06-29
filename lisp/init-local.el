@@ -228,4 +228,6 @@ If FILE already exists, signal an error."
 
 (setq org-agenda-files (list "~/project/carry/strategy.org"
                              "~/project/carry/plan.org"))
+
+(define-coding-system-alias 'UTF-8 'utf-8)
 (provide 'init-local)
