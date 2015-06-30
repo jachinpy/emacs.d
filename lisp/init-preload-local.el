@@ -16,6 +16,7 @@
 
 (require-package 'evil)
 (require-package 'w3m)
+(helm-mode 1)
 (require-package 'ensime)
 (require-package 'jedi)
 (require-package 'elpy)
