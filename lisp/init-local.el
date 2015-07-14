@@ -46,14 +46,6 @@
 (setq-default fill-column 80)
 (setq fci-rule-color "light green")
 
-(setq get-w3m-path (file-expand-wildcards "~/.emacs.d/elpa/w3m*"))
-(add-to-list 'load-path (car get-w3m-path))
-(require 'w3m)
-(setq w3m-use-cookies t)
-(setq browse-url-browser-function 'w3m-browse-url)
-(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-(global-set-key "\C-xm" 'browse-url-at-point)
-
 (projectile-global-mode)
 (setq projectile-completion-system 'helm)
 
@@ -217,4 +209,14 @@ If FILE already exists, signal an error."
                              "~/project/carry/plan.org"))
 
 (define-coding-system-alias 'UTF-8 'utf-8)
+
+;; must be sudo apt-get install w3m in ubuntu.
+(setq get-w3m-path (file-expand-wildcards "~/.emacs.d/elpa/w3m*"))
+(add-to-list 'load-path (car get-w3m-path))
+(require 'w3m)
+(setq w3m-use-cookies t)
+(setq browse-url-browser-function 'w3m-browse-url)
+(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+(global-set-key "\C-xm" 'browse-url-at-point)
+
 (provide 'init-local)
