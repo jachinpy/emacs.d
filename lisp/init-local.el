@@ -46,12 +46,6 @@
 (setq-default fill-column 80)
 (setq fci-rule-color "light green")
 
-(projectile-global-mode)
-(setq projectile-completion-system 'helm)
-
-(helm-projectile-on)
-(helm-descbinds-mode 1)
-
 (setq-default initial-scratch-message
               (concat ";; Welcome " (or user-login-name "")
                       "!\n;; Experience must be bought.\n\n"))

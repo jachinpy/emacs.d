@@ -113,6 +113,12 @@
   (require-package 'osx-location))
 (require-package 'regex-tool)
 
+(require-package 'helm)
+(require-package 'yasnippet)
+(require-package 'projectile)
+
+(require 'init-helm)
+
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
