@@ -1,16 +1,15 @@
-;;; Code:
-;;; Manual install packages:
-;;; (yasnippet, pymacs, jedi, w3m, virtualenv, slime, solarized-theme,
+;;; Code
+
+;;; packages:
+;;; yasnippet, pymacs, jedi, w3m, virtualenv, slime,
 ;;; evil, helm, helm-projectile, projectile, helm-descbinds, elpy, ensime,
-;;; nyan-mode,...)
+;;; nyan-mode,...
 
-;;; Install w3m
+;;; Debian system depend on packages
 ;;; sudo apt-get install w3m
-
-;;; Install elpy
 ;;; sudo pip install rope flake8 pep8 jedi importmagic
 
-;;; Install pymacs
+;;; python third-packages
 ;;; git clone http://github.com/pinard/pymacs
 ;;; cd pymacs
 ;;; make check
