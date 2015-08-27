@@ -24,6 +24,9 @@
 (setq yas-snippet-dirs (append yas-snippet-dirs
                                '("~/.emacs.d/snippets/django")
                                '("~/.emacs.d/yasnippet-snippets")))
+;;; fix term can't use <tab> key.
+(add-hook 'term-mode-hook (lambda()
+                            (setq yas-dont-activate 1)))
 
 (evil-mode 1)
 (setq evil-default-state 'emacs)
