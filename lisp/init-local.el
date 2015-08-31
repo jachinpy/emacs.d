@@ -28,6 +28,17 @@
 (add-hook 'term-mode-hook (lambda()
                             (setq yas-dont-activate 1)))
 
+;;; console and cygwin env chinese-input method support.
+(require 'chinese-pyim)
+(setq default-input-method "chinese-pyim")
+(global-set-key (kbd "C-<SPC>") 'toggle-input-method)
+(global-set-key (kbd "C-;") 'pyim-toggle-full-width-punctuation)
+(setq pyim-use-tooltip t)
+(setq pyim-dicts '((:name "BigDict"
+                          :file "~/.emacs.d/pyim-bigdict.pyim"
+                          :coding utf-8-unix)))
+(pyim-restart-1 t)
+
 (evil-mode 1)
 (setq evil-default-state 'emacs)
 (define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state)
