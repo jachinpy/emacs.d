@@ -33,6 +33,10 @@ To make the most of the programming language-specific support in this
 config, further programs will likely be required, particularly those
 that [flycheck](https://github.com/flycheck/flycheck) uses to provide
 on-the-fly syntax checking.
+To make the most of the programming language-specific support in this
+config, further programs will likely be required, particularly those
+that [flycheck](https://github.com/flycheck/flycheck) uses to provide
+on-the-fly syntax checking.
 
 ## Installation
 
