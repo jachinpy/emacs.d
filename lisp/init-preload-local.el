@@ -22,6 +22,7 @@
 (require-package 'anaconda-mode)
 (require-package 'web-mode)
 (require-package 'nyan-mode)
+(require-package 'chinese-pyim)
 
 (defun get-snippet ()
   (shell-command
