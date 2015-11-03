@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: mid
+# key: mid
+# binding: direct-keybinding
+# --
+middlewares=$0

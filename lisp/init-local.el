@@ -59,9 +59,7 @@
 (setq-default fill-column 80)
 (setq fci-rule-color "light green")
 
-(setq-default initial-scratch-message
-              (concat ";; Welcome " (or user-login-name "")
-                      "!\n;; Experience must be bought.\n\n"))
+(tabbar-mode 1)
 
 (autoload 'mew "mew" nil t)
 (autoload 'mew-send "mew" nil t)

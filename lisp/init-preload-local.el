@@ -23,6 +23,7 @@
 (require-package 'web-mode)
 (require-package 'nyan-mode)
 (require-package 'chinese-pyim)
+(require-package 'tabbar)
 
 (defun get-snippet ()
   (shell-command
