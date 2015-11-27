@@ -24,6 +24,7 @@
 (require-package 'nyan-mode)
 (require-package 'chinese-pyim)
 (require-package 'tabbar)
+(require-package 'powerline)
 
 (defun get-snippet ()
   (shell-command

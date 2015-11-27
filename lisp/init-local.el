@@ -43,6 +43,9 @@
 (setq evil-default-state 'emacs)
 (define-key evil-emacs-state-map (kbd "C-o") 'evil-execute-in-normal-state)
 
+;; powerline state
+(powerline-default-theme)
+
 ;;; Fix bug. fci-rule-color can use in dark color.
 ;; "lightgreen", "green", "darkblue" ,"light green" and so on.
 (make-variable-buffer-local 'line-move-visual)
