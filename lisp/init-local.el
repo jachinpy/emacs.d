@@ -140,26 +140,10 @@
         ((looking-at "\\s\)") (forward-char 1) (backward-list 1))
         (t (self-insert-command (or arg 1)))))
 
-(defun edit-file-as-root ()
-  "Edit the file that is associated with the current buffer as root"
-  (interactive)
-  (if (buffer-file-name)
-      (progn
-        (setq file (concat "/sudo:root@localhost:" (buffer-file-name)))
-        (find-file file))
-    (message "Current buffer does not have an associated file.")))
-
 (autoload 'auto-revert-mode "autorevert" 0 t)
 (autoload 'turn-on-auto-revert-mode "autorevert" 0 0)
 (autoload 'global-auto-revert-mode "autorevert" 0 t)
 (global-auto-revert-mode 1)
-
-(defun my-delete-leading-whitespace (start end)
-  "Delete whitespace at the beginning of each line in region."
-  (interactive "*r")
-  (save-excursion
-    (if (not (bolp)) (forward-line 1))
-    (delete-whitespace-rectangle (point) end 0)))
 
 (defun fullscreen ()
   (interactive)
@@ -207,11 +191,6 @@ If FILE already exists, signal an error."
       (concat user-temporary-file-directory ".auto-saves-"))
 (setq auto-save-file-name-transforms
       `((".*" ,user-temporary-file-directory t)))
-
-(defun insert-datetime ()
-  "Insert now datetime at point."
-  (interactive)
-  (insert (format-time-string "%Y-%m-%s %H:%M:%S")))
 
 (setq org-agenda-files (list "~/project/carry/strategy.org"
                              "~/project/carry/plan.org"))

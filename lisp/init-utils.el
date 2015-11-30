@@ -85,5 +85,36 @@
         (error "Cannot open tramp file")
       (browse-url (concat "file://" file-name)))))
 
+;;----------------------------------------------------------------------------
+;; Insert current Datetime
+;;----------------------------------------------------------------------------
+(defun insert-datetime ()
+  "Insert now datetime at point."
+  (interactive)
+  (insert (format-time-string "%Y-%m-%d %H:%M:%S")))
+
+
+;;----------------------------------------------------------------------------
+;; Delete leading whitespace
+;;----------------------------------------------------------------------------
+(defun delete-leading-whitespace (start end)
+  "Delete whitespace at the beginning of each line in region."
+  (interactive "*r")
+  (save-excursion
+    (if (not (bolp)) (forward-line 1))
+    (delete-whitespace-rectangle (point) end 0)))
+
+;;----------------------------------------------------------------------------
+;; Edit file use root
+;;----------------------------------------------------------------------------
+(defun edit-file-as-root ()
+  "Edit the file that is associated with the current buffer as root"
+  (interactive)
+  (if (buffer-file-name)
+      (progn
+        (setq file (concat "/sudo:root@localhost:" (buffer-file-name)))
+        (find-file file))
+    (message "Current buffer does not have an associated file.")))
+
 
 (provide 'init-utils)

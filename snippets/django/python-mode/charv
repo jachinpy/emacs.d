@@ -1,0 +1,6 @@
+# -*- mode: snippet; require-final-newline: nil -*-
+# name: charv
+# key: charv
+# binding: direct-keybinding
+# --
+${1:FIELDNAME} = models.CharField(max_length=${2:128}, verbose_name=_(u'${3:NA}'))
