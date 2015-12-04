@@ -25,6 +25,7 @@
 (require-package 'chinese-pyim)
 (require-package 'tabbar)
 (require-package 'powerline)
+(require-package 'neotree)
 
 (defun get-snippet ()
   (shell-command

@@ -207,5 +207,6 @@ If FILE already exists, signal an error."
 (global-set-key "\C-xm" 'browse-url-at-point)
 
 (setq tramp-default-method "ssh")
+(global-set-key [f8] 'neotree-toggle)
 
 (provide 'init-local)
