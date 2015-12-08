@@ -132,7 +132,7 @@
 
 (global-hl-line-mode 1)
 
-(global-set-key "%" 'match-paren)
+(global-set-key "&" 'match-paren)
 (defun match-paren (arg)
   "Go to the matching paren if on a paren; otherwise insert %."
   (interactive "p")
