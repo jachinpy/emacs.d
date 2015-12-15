@@ -26,4 +26,6 @@
 (helm-projectile-on)
 (helm-descbinds-mode 1)
 
+(global-set-key (kbd "M-t") 'projectile-find-file)
+
 (provide 'init-helm)
