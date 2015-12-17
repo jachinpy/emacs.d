@@ -207,6 +207,12 @@ If FILE already exists, signal an error."
 (global-set-key "\C-xm" 'browse-url-at-point)
 
 (setq tramp-default-method "ssh")
+
+;; use '/ssh::/' goto ubuntu host home dir(virtual env or openstack).
+;; edit /etc/hosts  {IP  openstack.dev.com}
+(setq tramp-default-user "ubuntu"
+      tramp-default-host "openstack.dev.com")
+
 (global-set-key [f8] 'neotree-toggle)
 
 (provide 'init-local)
