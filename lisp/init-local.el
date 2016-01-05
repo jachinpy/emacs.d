@@ -213,6 +213,11 @@ If FILE already exists, signal an error."
 (setq tramp-default-user "ubuntu"
       tramp-default-host "openstack.dev.com")
 
+(defun ushell ()
+  (interactive)
+  (let ((default-directory "/ssh::~/"))
+    (shell)))
+
 (global-set-key [f8] 'neotree-toggle)
 
 (provide 'init-local)
