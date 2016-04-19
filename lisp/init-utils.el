@@ -117,4 +117,13 @@
     (message "Current buffer does not have an associated file.")))
 
 
+;;----------------------------------------------------------------------------
+;; ubuntu updatedb,  update emacs files system.
+;;----------------------------------------------------------------------------
+(defun updb (password)
+  (interactive "sEnter your Ubuntu password: ")
+  (shell-command (concat "echo " (shell-quote-argument password)
+                         " | sudo -S updatedb"))
+  )
+
 (provide 'init-utils)

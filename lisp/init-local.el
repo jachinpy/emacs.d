@@ -1,4 +1,5 @@
-;;; Code
+;;; package --- Summary
+;;; Commentary:
 
 ;;; packages:
 ;;; yasnippet, pymacs, jedi, w3m, virtualenv, slime,
@@ -19,6 +20,7 @@
 ;; (setq debug-on-error t)
 ;; M-x toggle-debug-on-error
 ;;; M-x yas-reload-all if you've started YASnippet already.
+;;; Code:
 (yas-global-mode 1)
 ;;; keeping YASnippet defaults try out ~/Downloads/interesting-snippets
 (setq yas-snippet-dirs (append yas-snippet-dirs
@@ -221,3 +223,4 @@ If FILE already exists, signal an error."
 (global-set-key [f8] 'neotree-toggle)
 
 (provide 'init-local)
+;;; init-local.el ends here
