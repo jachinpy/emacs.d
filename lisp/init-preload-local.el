@@ -1,6 +1,6 @@
-;;; code
-
-;;; add packages source.
+;;; package --- Summary
+;;; Commentary:
+;;; code:
 (package-initialize)
 (add-to-list 'package-archives
              '("marmalade" . "http://marmalade-repo.org/packages/") t)
@@ -26,6 +26,7 @@
 (require-package 'tabbar)
 (require-package 'powerline)
 (require-package 'neotree)
+(require-package 'protobuf-mode)
 
 (defun get-snippet ()
   (shell-command
@@ -36,3 +37,4 @@
   (get-snippet))
 
 (provide 'init-preload-local)
+;;; init-preload-local.el ends here
