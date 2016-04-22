@@ -27,6 +27,8 @@
 (require-package 'powerline)
 (require-package 'neotree)
 (require-package 'protobuf-mode)
+(require-package 'airline-themes)
+
 
 (defun get-snippet ()
   (shell-command

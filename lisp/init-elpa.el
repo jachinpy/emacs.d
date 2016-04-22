@@ -30,6 +30,8 @@
                                                 "http://melpa.org/packages/"
                                               "https://melpa.org/packages/")))
 
+(add-to-list 'package-archives
+             '("popkit" . "http://elpa.popkit.org/packages/"))
 
 
 ;; If gpg cannot be found, signature checking will fail, so we
