@@ -30,6 +30,9 @@
 (add-hook 'term-mode-hook (lambda()
                             (setq yas-dont-activate 1)))
 
+;;; set js2-mode 4 space
+(setq js2-basic-offset 4)
+
 ;;; console and cygwin env chinese-input method support.
 (require 'chinese-pyim)
 (setq default-input-method "chinese-pyim")
@@ -229,6 +232,9 @@ If FILE already exists, signal an error."
   (let ((default-directory "/ssh::~/"))
     (shell)))
 
+;; neotree
+(setq neo-smart-open t)
+(setq projectile-switch-project-action 'neotree-projectile-action)
 (global-set-key [f8] 'neotree-toggle)
 
 (provide 'init-local)
