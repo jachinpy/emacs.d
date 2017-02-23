@@ -1,0 +1,16 @@
+1. 重启不能使用, 移除elpa下所有编译文件, *.elc.
+
+2. 提示 w3m-cookie can't open.
+ag w3m
+
+请注释所有w3m代码，安装后再尝试是否需要还原。
+
+3. ./test_startup.sh
+测试 emacs 能否正常使用。
+
+4.遇到包不存在的处理办法。
+
+	1. 删除 .elc 文件
+	2. 进入 emacs, M-x packages-install 安装包。
+
+

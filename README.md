@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/jachinpy/emacs.d.png?branch=develop)](https://travis-ci.org/jachinpy/emacs.d)
 # A reasonable Emacs config
 
 Emacs itself comes with support for many programming languages. This
@@ -107,3 +106,7 @@ just fork the repo and hack away at the config to make it your own!
  + add fullscreen and key.
  + add function my-delete-leading-whitespace.
  + add more packages, eg: elpy, pymacs, and so on.
+
+# faq
+
+    move to faq file.
