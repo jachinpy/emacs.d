@@ -14,3 +14,18 @@ ag w3m
 	2. 进入 emacs, M-x packages-install 安装包。
 
 
+5.在Emacs 24.3 Ubuntu14.04英文版中使用搜狗输入法
+从命令行启动
+
+LC_CTYPE='zh_CN.UTF-8' emacs
+从Dash（搜索框）启动
+
+重命名默认启动的emacs24-x
+sudo mv /usr/bin/emacs24-x /usr/bin/emacs24-x_original
+创建新的名为emacs24-x的脚本
+echo "LC_CTYPE='zh_CN.UTF-8' emacs24-x_original" | sudo tee /usr/bin/emacs24-x
+sudo chmod a+x /usr/bin/emacs24-x
+
+or
+./dash_emacs_sogou.sh
+6.
