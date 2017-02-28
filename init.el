@@ -128,8 +128,12 @@
 (require-package 'yasnippet)
 (require-package 'projectile)
 
+;;; myconf here
 (require 'init-helm)
 (require 'init-proto)
+(require 'init-tramp)
+(require 'init-pyim)
+(require 'init-python-dev)
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------

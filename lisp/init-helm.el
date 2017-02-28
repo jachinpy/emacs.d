@@ -1,5 +1,6 @@
-;;; Loading helm, use helm-projectile.
-
+;;; package --- helm, helm-projectil;
+;;; Commentary:
+;;; Code:
 (helm-mode 1)
 (eval-after-load "helm-mode"
   '(progn
@@ -29,3 +30,4 @@
 (global-set-key (kbd "M-t") 'projectile-find-file)
 
 (provide 'init-helm)
+;;; init-helm ends here

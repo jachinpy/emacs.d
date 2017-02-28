@@ -1,5 +1,5 @@
-;;; package --- Summary
-;;; Commentary:
+;;; package --- any config；
+;;; commentary:
 
 ;;; packages:
 ;;; yasnippet, pymacs, jedi, w3m, virtualenv, slime,
@@ -34,17 +34,6 @@
 
 ;;; set js2-mode 4 space
 (setq js2-basic-offset 4)
-
-;;; console and cygwin env chinese-input method support.
-(require 'chinese-pyim)
-(setq default-input-method "chinese-pyim")
-(global-set-key (kbd "C-<SPC>") 'toggle-input-method)
-(global-set-key (kbd "C-;") 'pyim-toggle-full-width-punctuation)
-(setq pyim-use-tooltip t)
-(setq pyim-dicts '((:name "BigDict"
-                          :file "~/.emacs.d/pyim-bigdict.pyim"
-                          :coding utf-8-unix)))
-(pyim-restart-1 t)
 
 (evil-mode 1)
 (setq evil-default-state 'emacs)
@@ -103,32 +92,6 @@
 (require 'ensime) ;;; Read code.
 (add-hook 'scala-mode-hook 'ensime-scala-mode-hook)
 
-(package-initialize)
-(elpy-enable)
-
-(add-hook 'python-mode-hook 'anaconda-mode)
-(add-hook 'python-mode-hook 'eldoc-mode)
-
-(add-to-list 'load-path "~/.emacs.d/pymacs")
-(defun load-ropemacs ()
-  "Load pymacs and ropemacs"
-  (interactive)
-  (require 'pymacs)
-  (autoload 'pymacs-apply "pymacs")
-  (autoload 'pymacs-call "pymacs")
-  (autoload 'pymacs-eval "pymacs" nil t)
-  (autoload 'pymacs-exec "pymacs" nil t)
-  (autoload 'pymacs-load "pymacs" nil t)
-  (pymacs-load "ropemacs" "rope-")
-  ;; Automatically save project python buffers before refactorings
-  (setq ropemacs-confirm-saving 'nil)
-  (setq ropemacs-enable-autoimport t)
-  (setq ropemacs-guess-project t)
-  (setq ropemacs-autoimport-modules
-        '("argparse" "bisect" "calendar" "collections" "ConfigParser" "datetime" "distutils" "errno" "exceptions" "fileinput" "fnmatch" "formatter" "fractions" "functools" "getopt" "glob" "hashlib" "heapq" "io" "itertools" "json" "logging" "math" "mimetypes" "os" "os.path" "pickle" "pickletools" "pipes" "platform" "pprint" "pydoc" "pyqcy" "random" "re" "repr" "setuptools" "shutil" "string" "sys" "tempfile" "time" "timeit" "urllib" "urllib2" "urlparse" "uuid" "weakref"))
-  )
-(global-set-key "\C-xpl" 'load-ropemacs)
-
 (require 'web-mode)
 (add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
@@ -161,41 +124,6 @@
 (autoload 'global-auto-revert-mode "autorevert" 0 t)
 (global-auto-revert-mode 1)
 
-(defun fullscreen ()
-  (interactive)
-  (set-frame-parameter nil 'fullscreen
-                       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
-(global-set-key [f11] 'fullscreen)
-
-;;; Here's an adaptation of dired-create-directory.
-;;; It works the same way, so as well as a plain filename,
-;;; you can also specify new parent directories
-;;;(to be created under the current directory) for the file (e.g. foo/bar/filename).
-(eval-after-load 'dired
-  '(progn
-     (define-key dired-mode-map (kbd "C-c n") 'my-dired-create-file)
-     (defun my-dired-create-file (file)
-       "Create a file called FILE.
-If FILE already exists, signal an error."
-       (interactive
-        (list (read-file-name "Create file: " (dired-current-directory))))
-       (let* ((expanded (expand-file-name file))
-              (try expanded)
-              (dir (directory-file-name (file-name-directory expanded)))
-              new)
-         (if (file-exists-p expanded)
-             (error "Cannot create file %s: file exists" expanded))
-         ;; Find the topmost nonexistent parent dir (variable `new')
-         (while (and try (not (file-exists-p try)) (not (equal new try)))
-           (setq new try
-                 try (directory-file-name (file-name-directory try))))
-         (when (not (file-exists-p dir))
-           (make-directory dir t))
-         (write-region "" nil expanded t)
-         (when new
-           (dired-add-file new)
-           (dired-move-to-filename))))))
-
 (defvar user-temporary-file-directory
   (concat temporary-file-directory user-login-name "/"))
 (make-directory user-temporary-file-directory t)
@@ -221,18 +149,6 @@ If FILE already exists, signal an error."
 ;; (setq browse-url-browser-function 'w3m-browse-url)
 ;; (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
 ;; (global-set-key "\C-xm" 'browse-url-at-point)
-
-(setq tramp-default-method "ssh")
-
-;; use '/ssh::/' goto ubuntu host home dir(virtual env or openstack).
-;; edit /etc/hosts  {IP  openstack.dev.com}
-(setq tramp-default-user "ubuntu"
-      tramp-default-host "openstack.dev.com")
-
-(defun ushell ()
-  (interactive)
-  (let ((default-directory "/ssh::~/"))
-    (shell)))
 
 ;; neotree
 (setq neo-smart-open t)

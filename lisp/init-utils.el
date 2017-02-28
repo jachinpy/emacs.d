@@ -126,4 +126,44 @@
                          " | sudo -S updatedb"))
   )
 
+;;----------------------------------------------------------------------------
+;; fullscreen
+;;----------------------------------------------------------------------------
+(defun fullscreen ()
+  (interactive)
+  (set-frame-parameter nil 'fullscreen
+                       (if (frame-parameter nil 'fullscreen) nil 'fullboth)))
+(global-set-key [f11] 'fullscreen)
+
+;;; Here's an adaptation of dired-create-directory.
+;;; It works the same way, so as well as a plain filename,
+;;; you can also specify new parent directories
+;;;(to be created under the current directory) for the file (e.g. foo/bar/filename).
+(eval-after-load 'dired
+  '(progn
+     (define-key dired-mode-map (kbd "C-c n") 'my-dired-create-file)
+     (defun my-dired-create-file (file)
+       "Create a file called FILE.
+If FILE already exists, signal an error."
+       (interactive
+        (list (read-file-name "Create file: " (dired-current-directory))))
+       (let* ((expanded (expand-file-name file))
+              (try expanded)
+              (dir (directory-file-name (file-name-directory expanded)))
+              new)
+         (if (file-exists-p expanded)
+             (error "Cannot create file %s: file exists" expanded))
+         ;; Find the topmost nonexistent parent dir (variable `new')
+         (while (and try (not (file-exists-p try)) (not (equal new try)))
+           (setq new try
+                 try (directory-file-name (file-name-directory try))))
+         (when (not (file-exists-p dir))
+           (make-directory dir t))
+         (write-region "" nil expanded t)
+         (when new
+           (dired-add-file new)
+           (dired-move-to-filename))))))
+
+
 (provide 'init-utils)
+;;; init-utils ends here
