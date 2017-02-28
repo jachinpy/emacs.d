@@ -28,4 +28,5 @@ sudo chmod a+x /usr/bin/emacs24-x
 
 or
 ./dash_emacs_sogou.sh
-6.
+
+6.本地更新文件后， 使用 M-x updb 或 ubuntu 执行 sudo updatedb

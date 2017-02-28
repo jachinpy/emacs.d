@@ -30,6 +30,8 @@
 (add-hook 'term-mode-hook (lambda()
                             (setq yas-dont-activate 1)))
 
+(setq backup-directory-alist (quote (("." . "~/.backups"))))
+
 ;;; set js2-mode 4 space
 (setq js2-basic-offset 4)
 
@@ -212,13 +214,13 @@ If FILE already exists, signal an error."
 (define-coding-system-alias 'UTF-8 'utf-8)
 
 ;; must be sudo apt-get install w3m in ubuntu.
-(setq get-w3m-path (file-expand-wildcards "~/.emacs.d/elpa/w3m*"))
-(add-to-list 'load-path (car get-w3m-path))
-(require 'w3m)
-(setq w3m-use-cookies t)
-(setq browse-url-browser-function 'w3m-browse-url)
-(autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
-(global-set-key "\C-xm" 'browse-url-at-point)
+;; (setq get-w3m-path (file-expand-wildcards "~/.emacs.d/elpa/w3m*"))
+;; (add-to-list 'load-path (car get-w3m-path))
+;; (require 'w3m)
+;; (setq w3m-use-cookies t)
+;; (setq browse-url-browser-function 'w3m-browse-url)
+;; (autoload 'w3m-browse-url "w3m" "Ask a WWW browser to show a URL." t)
+;; (global-set-key "\C-xm" 'browse-url-at-point)
 
 (setq tramp-default-method "ssh")
 
