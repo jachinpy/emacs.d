@@ -130,10 +130,12 @@
 
 ;;; myconf here
 (require 'init-helm)
+(require 'init-auto-save)
 (require 'init-proto)
 (require 'init-tramp)
 (require 'init-pyim)
 (require 'init-python-dev)
+
 ;;----------------------------------------------------------------------------
 ;; Allow access from emacsclient
 ;;----------------------------------------------------------------------------
